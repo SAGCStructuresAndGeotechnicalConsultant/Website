@@ -1,0 +1,650 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SAGC — Structures And Geotechnics Consultant</title>
+  <meta name="description" content="Consultoría técnica especializada en Ingeniería Estructural e Ingeniería Geotécnica. Diseño sismorresistente, interacción suelo-estructura y modelación numérica.">
+  
+  <!-- Google Fonts: Inter para lectura técnica y complementaria a Georgia -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              navy: '#0B192C',
+              navyDark: '#07101E',
+              navyLight: '#1E3E62',
+              steel: '#2563EB',
+              steelLight: '#60A5FA',
+              slate: '#475569',
+              lightBg: '#F8FAFC',
+              borderSlate: '#E2E8F0'
+            }
+          },
+          fontFamily: {
+            serif: ['Georgia', 'Georgia Pro', 'serif'],
+            sans: ['Inter', 'Segoe UI', 'sans-serif']
+          },
+          letterSpacing: {
+            widestLogo: '0.32em'
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    /* Patrón de retícula milimétrica / técnica para fondo */
+    .blueprint-grid {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
+    }
+    .blueprint-grid-light {
+      background-size: 40px 40px;
+      background-image: 
+        linear-gradient(to right, rgba(11, 25, 44, 0.04) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(11, 25, 44, 0.04) 1px, transparent 1px);
+    }
+  </style>
+</head>
+
+<body class="font-sans text-brand-navy bg-white antialiased selection:bg-brand-navy selection:text-white">
+
+  <!-- Cabecera Institucional: Fondo blanco con tipografía navy -->
+  <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-brand-borderSlate">
+    <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+      
+      <!-- Marca tipográfica institucional -->
+      <a href="#hero" class="flex flex-col group">
+        <span class="font-serif text-2xl font-bold tracking-widestLogo text-brand-navy uppercase transition-colors group-hover:text-brand-steel">
+          S A G C
+        </span>
+        <span class="text-[10px] tracking-wider text-brand-slate uppercase font-medium">
+          Structures &amp; Geotechnics Consultant
+        </span>
+      </a>
+
+      <!-- Menú de Navegación de escritorio -->
+      <nav class="hidden md:flex items-center space-x-8 text-xs font-semibold uppercase tracking-wider text-brand-navy">
+        <a href="#about" class="hover:text-brand-steel transition-colors py-1 border-b-2 border-transparent hover:border-brand-steel">Metodología</a>
+        <a href="#services" class="hover:text-brand-steel transition-colors py-1 border-b-2 border-transparent hover:border-brand-steel">Servicios Técnicos</a>
+        <a href="#portfolio" class="hover:text-brand-steel transition-colors py-1 border-b-2 border-transparent hover:border-brand-steel">Casos de Estudio</a>
+        <a href="#contact" class="px-5 py-2.5 bg-brand-navy text-white rounded hover:bg-brand-navyLight transition-colors">
+          Solicitud de Consulta
+        </a>
+      </nav>
+
+      <!-- Botón móvil -->
+      <button id="mobileMenuBtn" aria-label="Abrir menú" class="md:hidden text-brand-navy p-2 focus:outline-none">
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"/>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menú desplegable móvil -->
+    <div id="mobileMenu" class="hidden md:hidden bg-white border-t border-brand-borderSlate px-6 py-4 space-y-3">
+      <a href="#about" class="block text-sm font-semibold uppercase tracking-wider text-brand-navy py-1">Metodología</a>
+      <a href="#services" class="block text-sm font-semibold uppercase tracking-wider text-brand-navy py-1">Servicios Técnicos</a>
+      <a href="#portfolio" class="block text-sm font-semibold uppercase tracking-wider text-brand-navy py-1">Casos de Estudio</a>
+      <a href="#contact" class="block text-sm font-semibold uppercase tracking-wider text-brand-steel py-1">Solicitud de Consulta</a>
+    </div>
+  </header>
+
+  <!-- SECCIÓN 1 (AZUL): Hero Section Corporativo -->
+  <section id="hero" class="relative bg-brand-navy text-white py-28 md:py-36 overflow-hidden blueprint-grid border-b border-brand-navyDark">
+    
+    <!-- Silueta arquitectónica e ingenieril en vector SVG sutil -->
+    <div class="absolute inset-0 pointer-events-none opacity-10 flex items-end justify-center">
+      <svg class="w-full h-96 text-white" viewBox="0 0 1200 400" fill="none" stroke="currentColor" stroke-width="1.2">
+        <!-- Skyline / retícula de edificación estructural -->
+        <rect x="50" y="80" width="80" height="320" />
+        <line x1="50" y1="120" x2="130" y2="120" />
+        <line x1="50" y1="160" x2="130" y2="160" />
+        <line x1="50" y1="200" x2="130" y2="200" />
+        <line x1="50" y1="240" x2="130" y2="240" />
+        <line x1="50" y1="280" x2="130" y2="280" />
+        
+        <rect x="180" y="140" width="120" height="260" />
+        <line x1="180" y1="200" x2="300" y2="200" />
+        <line x1="180" y1="260" x2="300" y2="260" />
+        <line x1="180" y1="320" x2="300" y2="320" />
+
+        <polygon points="380,400 440,60 500,400" />
+        <line x1="410" y1="200" x2="470" y2="200" />
+        <line x1="425" y1="120" x2="455" y2="120" />
+
+        <rect x="560" y="110" width="100" height="290" />
+        <line x1="560" y1="170" x2="660" y2="170" />
+        <line x1="560" y1="230" x2="660" y2="230" />
+        <line x1="560" y1="290" x2="660" y2="290" />
+
+        <rect x="720" y="50" width="90" height="350" />
+        <line x1="720" y1="110" x2="810" y2="110" />
+        <line x1="720" y1="170" x2="810" y2="170" />
+        <line x1="720" y1="230" x2="810" y2="230" />
+        <line x1="720" y1="290" x2="810" y2="290" />
+        <line x1="720" y1="350" x2="810" y2="350" />
+
+        <rect x="870" y="160" width="140" height="240" />
+        <line x1="870" y1="220" x2="1010" y2="220" />
+        <line x1="870" y1="280" x2="1010" y2="280" />
+        <line x1="870" y1="340" x2="1010" y2="340" />
+
+        <line x1="0" y1="399" x2="1200" y2="399" stroke-width="2" />
+      </svg>
+    </div>
+
+    <div class="relative max-w-5xl mx-auto px-6 text-center">
+      
+      <!-- Bloque central de identidad corporativa en tipografía Georgia -->
+      <div class="inline-block mx-auto mb-6">
+        <h1 class="font-serif text-5xl sm:text-6xl md:text-7xl lg:text-8xl tracking-widestLogo font-bold text-white uppercase select-none">
+          S A G C
+        </h1>
+        <div class="h-0.5 w-full bg-brand-steelLight/70 mt-2 mb-3"></div>
+        <p class="font-serif text-sm sm:text-base md:text-lg text-brand-steelLight tracking-wide font-normal">
+          Structures And Geotechnics Consultant
+        </p>
+      </div>
+
+      <p class="max-w-2xl mx-auto text-slate-300 text-sm sm:text-base md:text-lg leading-relaxed font-light mt-4">
+        Consultoría analítica de alta fidelidad técnica. Vinculamos el comportamiento intrínseco del subsuelo con la respuesta dinámica y sismorresistente de las estructuras.
+      </p>
+
+      <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
+        <a href="#services" class="w-full sm:w-auto px-8 py-3.5 bg-brand-steel text-white text-xs font-semibold uppercase tracking-wider rounded hover:bg-blue-600 transition-colors shadow-sm">
+          Explorar Servicios Técnicos
+        </a>
+        <a href="#contact" class="w-full sm:w-auto px-8 py-3.5 border border-slate-400 text-white text-xs font-semibold uppercase tracking-wider rounded hover:bg-white hover:text-brand-navy transition-colors">
+          Revisión de Proyectos
+        </a>
+      </div>
+
+      <!-- Barra de acreditación de rigor analítico -->
+      <div class="mt-16 pt-8 border-t border-white/10 grid grid-cols-2 md:grid-cols-4 gap-6 text-left">
+        <div>
+          <span class="block text-xl font-bold font-serif text-white">NSR-10</span>
+          <span class="text-xs text-slate-400">Normativa sismorresistente</span>
+        </div>
+        <div>
+          <span class="block text-xl font-bold font-serif text-white">ACI / AISC</span>
+          <span class="text-xs text-slate-400">Estándares internacionales</span>
+        </div>
+        <div>
+          <span class="block text-xl font-bold font-serif text-white">FEM / MEF</span>
+          <span class="text-xs text-slate-400">Modelación numérica avanzada</span>
+        </div>
+        <div>
+          <span class="block text-xl font-bold font-serif text-white">BIM Coord.</span>
+          <span class="text-xs text-slate-400">Interoperabilidad tridimensional</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN 2 (BLANCO): Filosofía y Metodología Integral -->
+  <section id="about" class="py-24 bg-white text-brand-navy blueprint-grid-light border-b border-brand-borderSlate">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
+        
+        <div class="lg:col-span-5">
+          <div class="text-xs font-bold uppercase tracking-widest text-brand-steel mb-2">Enfoque Analítico</div>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-navy leading-tight">
+            Interacción Suelo-Estructura sin desconexión disciplinar.
+          </h2>
+          <div class="w-16 h-1 bg-brand-navy mt-4 mb-6"></div>
+          <p class="text-brand-slate text-sm sm:text-base leading-relaxed mb-4">
+            En la práctica convencional, la geotecnia y el diseño estructural suelen abordarse como fases aisladas. En <strong>SAGC</strong> unificamos ambos campos bajo un modelo de análisis interdependiente que previene incompatibilidades de deformación y optimiza el consumo de materiales.
+          </p>
+          <p class="text-brand-slate text-sm sm:text-base leading-relaxed">
+            Aplicamos criterios rigurosos de mecánica del medio continuo, formulaciones de elementos finitos y parametrización experimental para resolver problemas de cimentación y superestructura con seguridad y eficiencia económica.
+          </p>
+        </div>
+
+        <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+          
+          <!-- Pilar 1 -->
+          <div class="p-6 bg-brand-lightBg border border-brand-borderSlate rounded">
+            <div class="font-serif text-2xl font-bold text-brand-navy mb-2">01. Caracterización</div>
+            <h3 class="text-xs uppercase font-bold text-brand-slate tracking-wider mb-2">Rigidez y estratigrafía</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Interpretación directa de sondeos mecánicos, ensayos de corte, permeabilidad y compresibilidad para una modelación fiel del medio geotécnico.
+            </p>
+          </div>
+
+          <!-- Pilar 2 -->
+          <div class="p-6 bg-brand-lightBg border border-brand-borderSlate rounded">
+            <div class="font-serif text-2xl font-bold text-brand-navy mb-2">02. Dinámica de Suelos</div>
+            <h3 class="text-xs uppercase font-bold text-brand-slate tracking-wider mb-2">Efectos de sitio y respuesta</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Definición de aceleraciones espectrales reales ajustadas a la estratigrafía local, reduciendo incertidumbres en el análisis sísmico estructural.
+            </p>
+          </div>
+
+          <!-- Pilar 3 -->
+          <div class="p-6 bg-brand-lightBg border border-brand-borderSlate rounded">
+            <div class="font-serif text-2xl font-bold text-brand-navy mb-2">03. Resiliencia Estructural</div>
+            <h3 class="text-xs uppercase font-bold text-brand-slate tracking-wider mb-2">Ductilidad y control de daños</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Dimensionamiento y detallado meticuloso de pórticos, muros estructurales y losas en estricta conformidad con normas sismorresistentes aplicables.
+            </p>
+          </div>
+
+          <!-- Pilar 4 -->
+          <div class="p-6 bg-brand-lightBg border border-brand-borderSlate rounded">
+            <div class="font-serif text-2xl font-bold text-brand-navy mb-2">04. Constructibilidad</div>
+            <h3 class="text-xs uppercase font-bold text-brand-slate tracking-wider mb-2">Planos y especificaciones</h3>
+            <p class="text-xs text-slate-600 leading-relaxed">
+              Entrega de memorias de cálculo auditables, planos constructivos legibles y soporte técnico durante las etapas críticas de excavación y cimentación.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN 3 (AZUL): Servicios Técnicos Especializados -->
+  <section id="services" class="py-24 bg-brand-navy text-white blueprint-grid border-b border-brand-navyDark">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="text-center max-w-3xl mx-auto mb-16">
+        <span class="text-xs font-bold uppercase tracking-widest text-brand-steelLight">Alcance Operativo</span>
+        <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">
+          Líneas de Consultoría e Ingeniería
+        </h2>
+        <div class="w-16 h-1 bg-brand-steel mx-auto mt-4 mb-4"></div>
+        <p class="text-slate-300 text-sm sm:text-base">
+          Desarrollamos soluciones técnicas integrales clasificadas en dos divisiones complementarias.
+        </p>
+      </div>
+
+      <!-- Cuadrícula dual de servicios -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+        
+        <!-- DIVISIÓN 1: GEOTECNIA -->
+        <div class="bg-brand-navyDark/90 border border-slate-700 p-8 sm:p-10 rounded">
+          <div class="flex items-center justify-between pb-6 border-b border-slate-700 mb-6">
+            <div>
+              <span class="text-xs font-bold text-brand-steelLight tracking-widest uppercase">Especialidad 01</span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mt-1">Ingeniería Geotécnica</h3>
+            </div>
+            <div class="p-3 bg-white/5 border border-slate-700 rounded text-brand-steelLight">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 14l-7 7m0 0l-7-7m7 7V3"/>
+              </svg>
+            </div>
+          </div>
+
+          <ul class="space-y-4 text-sm text-slate-300">
+            <li class="flex items-start">
+              <span class="text-brand-steelLight mr-3 font-mono font-bold">—</span>
+              <div>
+                <strong class="text-white font-medium block">Estudios de Suelos y Exploración del Subsuelo:</strong>
+                Planificación y ejecución de campañas de sondeo mecánico, ensayos SPT, CPTu, toma de muestras inalteradas y ensayos de laboratorio.
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-brand-steelLight mr-3 font-mono font-bold">—</span>
+              <div>
+                <strong class="text-white font-medium block">Cimentaciones Superficiales y Profundas:</strong>
+                Determinación de capacidad admisible, asentamientos inmediatos y diferidos, diseño analítico de zapatas, losas de flotación y pilotajes.
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-brand-steelLight mr-3 font-mono font-bold">—</span>
+              <div>
+                <strong class="text-white font-medium block">Estabilidad de Taludes y Estructuras de Contención:</strong>
+                Modelación de equilibrio límite y elementos finitos para laderas naturales, cortes viales, muros en voladizo y pantallas ancladas.
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-brand-steelLight mr-3 font-mono font-bold">—</span>
+              <div>
+                <strong class="text-white font-medium block">Microzonificación y Respuesta Dinámica:</strong>
+                Evaluación de potencial de licuefacción del suelo, análisis 1D de propagación de ondas y espectros elásticos de diseño en superficie.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!-- DIVISIÓN 2: ESTRUCTURAS -->
+        <div class="bg-brand-navyDark/90 border border-slate-700 p-8 sm:p-10 rounded">
+          <div class="flex items-center justify-between pb-6 border-b border-slate-700 mb-6">
+            <div>
+              <span class="text-xs font-bold text-brand-steelLight tracking-widest uppercase">Especialidad 02</span>
+              <h3 class="font-serif text-2xl sm:text-3xl font-bold text-white mt-1">Ingeniería Estructural</h3>
+            </div>
+            <div class="p-3 bg-white/5 border border-slate-700 rounded text-brand-steelLight">
+              <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 21h18M5 21V5a2 2 0 012-2h10a2 2 0 012 2v16M9 9h6M9 13h6M9 17h6"/>
+              </svg>
+            </div>
+          </div>
+
+          <ul class="space-y-4 text-sm text-slate-300">
+            <li class="flex items-start">
+              <span class="text-brand-steelLight mr-3 font-mono font-bold">—</span>
+              <div>
+                <strong class="text-white font-medium block">Diseño Sismorresistente de Edificaciones:</strong>
+                Cálculo y optimización de sistemas en concreto reforzado, perfiles de acero estructural, mampostería estructural y sistemas híbridos.
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-brand-steelLight mr-3 font-mono font-bold">—</span>
+              <div>
+                <strong class="text-white font-medium block">Evaluación de Vulnerabilidad y Rehabilitación Sísmica:</strong>
+                Diagnóstico patológico no destructivo, chequeo normativo de estructuras existentes y diseño de sistemas de reforzamiento estructural.
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-brand-steelLight mr-3 font-mono font-bold">—</span>
+              <div>
+                <strong class="text-white font-medium block">Interacción Dinámica Suelo-Cimentación-Estructura:</strong>
+                Modelado de resortes elásticos (Winkler) y modelos continuos acoplados para verificación precisa de derivas y solicitaciones nodales.
+              </div>
+            </li>
+            <li class="flex items-start">
+              <span class="text-brand-steelLight mr-3 font-mono font-bold">—</span>
+              <div>
+                <strong class="text-white font-medium block">Modelación Numérica y Coordinación BIM:</strong>
+                Generación de modelos de información de la construcción (Revit, ETABS, SAP2000), detección de colisiones y despiece de armaduras.
+              </div>
+            </li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN 4 (BLANCO): Casos de Estudio y Portafolio Técnico -->
+  <section id="portfolio" class="py-24 bg-white text-brand-navy border-b border-brand-borderSlate">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="flex flex-col md:flex-row md:items-end justify-between mb-16">
+        <div>
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-steel">Evidencia Técnica</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-brand-navy mt-2">
+            Proyectos y Casos de Estudio
+          </h2>
+          <div class="w-16 h-1 bg-brand-navy mt-3"></div>
+        </div>
+        <p class="text-brand-slate text-sm max-w-md mt-4 md:mt-0">
+          Muestra representativa de intervenciones de consultoría, modelación sismorresistente y diseño de fundaciones en distintos contextos geotécnicos.
+        </p>
+      </div>
+
+      <!-- Grid de Proyectos -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        
+        <!-- Caso 1 -->
+        <div class="border border-brand-borderSlate rounded overflow-hidden flex flex-col bg-brand-lightBg hover:border-brand-navy transition-all duration-300">
+          <div class="h-48 bg-brand-navy p-6 flex flex-col justify-between text-white relative blueprint-grid">
+            <span class="text-[10px] uppercase font-bold tracking-widest text-brand-steelLight">Edificación Residencial</span>
+            <div class="font-mono text-xs text-slate-400">Pórticos con Muros de Cortante</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-lg font-bold text-brand-navy mb-2">Complejo Multifamiliar de Altura Media</h3>
+              <p class="text-xs text-brand-slate leading-relaxed mb-4">
+                Diseño estructural sismorresistente bajo NSR-10, incluyendo losa de cimentación con pilotes preexcavados sobre suelos cohesivos de mediana compresibilidad.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-brand-borderSlate flex items-center justify-between text-xs font-semibold text-brand-navy">
+              <span>Hormigón Armado / Pilotes</span>
+              <span class="text-brand-steel font-mono">12 Niveles</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Caso 2 -->
+        <div class="border border-brand-borderSlate rounded overflow-hidden flex flex-col bg-brand-lightBg hover:border-brand-navy transition-all duration-300">
+          <div class="h-48 bg-brand-navyLight p-6 flex flex-col justify-between text-white relative blueprint-grid">
+            <span class="text-[10px] uppercase font-bold tracking-widest text-brand-steelLight">Infraestructura Vial y Taludes</span>
+            <div class="font-mono text-xs text-slate-200">Equilibrio Límite &amp; Anclajes</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-lg font-bold text-brand-navy mb-2">Estabilización de Ladera Andina</h3>
+              <p class="text-xs text-brand-slate leading-relaxed mb-4">
+                Análisis geotécnico retrospectivo y diseño de sistema pasivo-activo de contención mediante pantalla discontinua de micropilotes y tendones pretensados.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-brand-borderSlate flex items-center justify-between text-xs font-semibold text-brand-navy">
+              <span>Geotecnia Aplicada</span>
+              <span class="text-brand-steel font-mono">FS > 1.50</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Caso 3 -->
+        <div class="border border-brand-borderSlate rounded overflow-hidden flex flex-col bg-brand-lightBg hover:border-brand-navy transition-all duration-300">
+          <div class="h-48 bg-slate-800 p-6 flex flex-col justify-between text-white relative blueprint-grid">
+            <span class="text-[10px] uppercase font-bold tracking-widest text-brand-steelLight">Patología &amp; Reforzamiento</span>
+            <div class="font-mono text-xs text-slate-400">Auscultación Estructural</div>
+          </div>
+          <div class="p-6 flex-1 flex flex-col justify-between">
+            <div>
+              <h3 class="font-serif text-lg font-bold text-brand-navy mb-2">Rehabilitación Sísmica Estructura Comercial</h3>
+              <p class="text-xs text-brand-slate leading-relaxed mb-4">
+                Evaluación no lineal de derivas de piso y proyecto de reforzamiento con diagonales metálicas concéntricas (CBF) y recrecido de columnas perimetrales.
+              </p>
+            </div>
+            <div class="pt-4 border-t border-brand-borderSlate flex items-center justify-between text-xs font-semibold text-brand-navy">
+              <span>Acero Estructural &amp; CFRP</span>
+              <span class="text-brand-steel font-mono">Revisión Símica</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- SECCIÓN 5 (AZUL): Formulario Técnico y Canales de Contacto -->
+  <section id="contact" class="py-24 bg-brand-navy text-white blueprint-grid">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+        
+        <!-- Datos de contacto y contexto -->
+        <div class="lg:col-span-5">
+          <span class="text-xs font-bold uppercase tracking-widest text-brand-steelLight">Contacto Profesional</span>
+          <h2 class="font-serif text-3xl sm:text-4xl font-bold text-white mt-2">
+            Inicie una consulta técnica con SAGC
+          </h2>
+          <div class="w-16 h-1 bg-brand-steel mt-4 mb-6"></div>
+          
+          <p class="text-slate-300 text-sm leading-relaxed mb-8">
+            Revisamos especificaciones técnicas, términos de referencia y requerimientos geotécnicos o estructurales preliminares para presentar propuestas de consultoría técnica a medida.
+          </p>
+
+          <div class="space-y-4 text-sm text-slate-300">
+            <div class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-brand-steelLight mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+              </svg>
+              <div>
+                <span class="text-white block font-medium">Correo Electrónico Directo</span>
+                <span class="text-xs text-slate-400">contacto@sagc-consulting.com (o institucional a definir)</span>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-brand-steelLight mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+              </svg>
+              <div>
+                <span class="text-white block font-medium">Sede Operativa</span>
+                <span class="text-xs text-slate-400">Consultoría y servicios técnicos a nivel nacional</span>
+              </div>
+            </div>
+
+            <div class="flex items-start space-x-3">
+              <svg class="w-5 h-5 text-brand-steelLight mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+              </svg>
+              <div>
+                <span class="text-white block font-medium">Idoneidad Profesional</span>
+                <span class="text-xs text-slate-400">Cálculos respaldados por ingenieros con matrícula profesional vigente</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Formulario de requerimiento técnico -->
+        <div class="lg:col-span-7 bg-white text-brand-navy p-8 sm:p-10 rounded shadow-xl">
+          <h3 class="font-serif text-xl font-bold text-brand-navy mb-6">Formulario de Requerimiento Técnico</h3>
+          
+          <form id="contactForm" class="space-y-4">
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="name" class="block text-xs font-semibold uppercase tracking-wider text-brand-slate mb-1">Nombre y Apellidos *</label>
+                <input type="text" id="name" required class="w-full px-3 py-2.5 bg-brand-lightBg border border-brand-borderSlate rounded text-sm focus:outline-none focus:border-brand-navy text-brand-navy" placeholder="Ej. Ing. Carlos Pérez">
+              </div>
+              <div>
+                <label for="company" class="block text-xs font-semibold uppercase tracking-wider text-brand-slate mb-1">Empresa / Contratista</label>
+                <input type="text" id="company" class="w-full px-3 py-2.5 bg-brand-lightBg border border-brand-borderSlate rounded text-sm focus:outline-none focus:border-brand-navy text-brand-navy" placeholder="Ej. Constructora Andina">
+              </div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div>
+                <label for="email" class="block text-xs font-semibold uppercase tracking-wider text-brand-slate mb-1">Correo Electrónico *</label>
+                <input type="email" id="email" required class="w-full px-3 py-2.5 bg-brand-lightBg border border-brand-borderSlate rounded text-sm focus:outline-none focus:border-brand-navy text-brand-navy" placeholder="correo@empresa.com">
+              </div>
+              <div>
+                <label for="serviceType" class="block text-xs font-semibold uppercase tracking-wider text-brand-slate mb-1">Tipo de Servicio *</label>
+                <select id="serviceType" required class="w-full px-3 py-2.5 bg-brand-lightBg border border-brand-borderSlate rounded text-sm focus:outline-none focus:border-brand-navy text-brand-navy">
+                  <option value="" disabled selected>Seleccione una categoría</option>
+                  <option value="estructural">Diseño Estructural Completo</option>
+                  <option value="geotecnia">Estudio Geotécnico / Cimentaciones</option>
+                  <option value="integral">Consultoría Integral Suelo-Estructura</option>
+                  <option value="taludes">Estabilidad de Taludes / Contención</option>
+                  <option value="vulnerabilidad">Revisión / Vulnerabilidad Sísmica</option>
+                </select>
+              </div>
+            </div>
+
+            <div>
+              <label for="location" class="block text-xs font-semibold uppercase tracking-wider text-brand-slate mb-1">Ubicación del Proyecto</label>
+              <input type="text" id="location" class="w-full px-3 py-2.5 bg-brand-lightBg border border-brand-borderSlate rounded text-sm focus:outline-none focus:border-brand-navy text-brand-navy" placeholder="Ciudad, departamento o zona sísmica">
+            </div>
+
+            <div>
+              <label for="message" class="block text-xs font-semibold uppercase tracking-wider text-brand-slate mb-1">Alcance y Descripción del Proyecto *</label>
+              <textarea id="message" rows="4" required class="w-full px-3 py-2.5 bg-brand-lightBg border border-brand-borderSlate rounded text-sm focus:outline-none focus:border-brand-navy text-brand-navy" placeholder="Indique altura aproximada, tipo de suelo preliminar, área a intervenir o requerimientos normativos..."></textarea>
+            </div>
+
+            <!-- Caja de mensaje de estado accesible -->
+            <div id="formFeedback" class="hidden p-3 rounded text-xs"></div>
+
+            <button type="submit" class="w-full py-3.5 bg-brand-navy text-white text-xs font-semibold uppercase tracking-widest rounded hover:bg-brand-navyLight transition-colors">
+              Enviar Solicitud Técnica
+            </button>
+          </form>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- PIE DE PÁGINA: Respaldo legal y corporativo -->
+  <footer class="bg-brand-navyDark text-slate-400 py-12 border-t border-slate-800 text-xs">
+    <div class="max-w-7xl mx-auto px-6">
+      
+      <div class="flex flex-col md:flex-row items-center justify-between pb-8 border-b border-slate-800 gap-4 text-center md:text-left">
+        <div>
+          <span class="font-serif text-xl tracking-widestLogo text-white font-bold block">SAGC</span>
+          <span class="text-[11px] text-slate-400 uppercase tracking-wider">Structures And Geotechnics Consultant</span>
+        </div>
+        <div class="text-xs text-slate-400 max-w-md">
+          Práctica profesional independiente en ingeniería civil. Proyectos desarrollados bajo lineamientos de seguridad, economía y rigor analítico.
+        </div>
+      </div>
+
+      <div class="pt-6 flex flex-col md:flex-row items-center justify-between gap-4 text-[11px] text-slate-500">
+        <div>
+          &copy; <span id="currentYear"></span> SAGC Structures And Geotechnics Consultant. Todos los derechos reservados.
+        </div>
+        <div>
+          Información con fines de divulgación técnica profesional.
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <script>
+    // Año dinámico en pie de página
+    document.getElementById('currentYear').textContent = new Date().getFullYear();
+
+    // Manejo de menú móvil
+    const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+    const mobileMenu = document.getElementById('mobileMenu');
+
+    mobileMenuBtn.addEventListener('click', function() {
+      mobileMenu.classList.toggle('hidden');
+    });
+
+    // Cerrar menú móvil al seleccionar enlace
+    const mobileLinks = mobileMenu.querySelectorAll('a');
+    mobileLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.add('hidden');
+      });
+    });
+
+    // Manejo del formulario de contacto sin alert()
+    const contactForm = document.getElementById('contactForm');
+    const formFeedback = document.getElementById('formFeedback');
+
+    contactForm.addEventListener('submit', function(e) {
+      e.preventDefault();
+      
+      const name = document.getElementById('name').value.trim();
+      const email = document.getElementById('email').value.trim();
+      const service = document.getElementById('serviceType').value;
+      const message = document.getElementById('message').value.trim();
+
+      if (!name || !email || !service || !message) {
+        formFeedback.className = "p-3 rounded text-xs bg-red-100 text-red-800 border border-red-300 block";
+        formFeedback.textContent = "Por favor complete todos los campos obligatorios marcados con asterisco (*).";
+        return;
+      }
+
+      // Confirmación de envío técnico
+      formFeedback.className = "p-3 rounded text-xs bg-emerald-100 text-emerald-800 border border-emerald-300 block";
+      formFeedback.textContent = "Solicitud recibida correctamente. Nos comunicaremos a la brevedad para coordinar la revisión técnica de su proyecto.";
+      
+      contactForm.reset();
+
+      setTimeout(() => {
+        formFeedback.className = "hidden";
+      }, 7000);
+    });
+  </script>
+
+</body>
+</html>
